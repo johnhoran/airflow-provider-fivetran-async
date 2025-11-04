@@ -6,7 +6,7 @@ import logging
 log = logging.getLogger(__name__)
 
 try:
-    from openlineage.airflow.extractors.base import (  # type: ignore[import]
+    from airflow.providers.openlineage.extractors.base import (  # type: ignore[import]
         OperatorLineage,
     )
     from openlineage.client.facet import (
@@ -20,7 +20,7 @@ try:
     )
     from openlineage.client.run import Dataset
 except ImportError:
-    logging.debug("openlineage-airflow python dependency is missing")
+    logging.debug("apache-airflow-providers-openlineage python dependency is missing")
 
 
 def get_provider_info():
