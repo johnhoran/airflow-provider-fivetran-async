@@ -64,6 +64,7 @@ class FivetranTrigger(BaseTrigger):
         Make async connection to Fivetran,
         Trigger will yield when connector's sync finishes
         """
+        self.log.info("Watching for Fivetran connector %s to finish syncing, started from %s", self.connector_id, self.previous_completed_at)
         try:
             hook = FivetranHookAsync(fivetran_conn_id=self.fivetran_conn_id)
             if self.previous_completed_at is None:
